@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloom Garden — Habit Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Bloom Garden</h1>
+      <p>Daily, Monthly & Yearly Habit Tracker</p>
+    </header>
+
+    <!-- Results Dashboard -->
+    <section class="dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Today's Progress</span>
+          <span class="stat-number" id="daily-percent">0%</span>
+          <span class="stat-sub" id="daily-count">0/0 done</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Monthly Result</span>
+          <span class="stat-number" id="monthly-percent">0%</span>
+          <span class="stat-sub" id="monthly-label">November 2026</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Yearly Check-ins</span>
+          <span class="stat-number" id="yearly-count">0</span>
+          <span class="stat-sub" id="yearly-label">Total in 2026</span>
+        </div>
+      </div>
+
+      <div class="progress-wrapper">
+        <div class="progress-header">
+          <span>Today's Completion</span>
+          <span id="bar-percent">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Habit Form -->
+    <form class="habit-form" id="habit-form">
+      <input
+        type="text"
+        id="habit-input"
+        placeholder="Add a new habit (e.g. Morning Walk, Code 1 hr)..."
+        required
+      />
+      <button type="submit">Add Habit</button>
+    </form>
+
+    <!-- Controls: View Tabs + Month/Year Selector -->
+    <div class="controls">
+      <div class="tabs">
+        <button class="tab-btn active" id="tab-daily" type="button">Daily View</button>
+        <button class="tab-btn" id="tab-monthly" type="button">Monthly Grid</button>
+      </div>
+
+      <div class="date-selectors">
+        <select id="month-select" aria-label="Select Month"></select>
+        <select id="year-select" aria-label="Select Year"></select>
+      </div>
+    </div>
+
+    <!-- Daily View Section -->
+    <section id="daily-view">
+      <div class="section-title">
+        <h2 id="today-date-heading">Today's Habits</h2>
+      </div>
+      <ul class="habit-list" id="daily-habit-list"></ul>
+    </section>
+
+    <!-- Monthly Grid View Section -->
+    <section id="monthly-view" class="hidden">
+      <div class="section-title">
+        <h2 id="monthly-grid-heading">Monthly Tracker</h2>
+        <span class="hint">Click any day cell to toggle completion</span>
+      </div>
+      <div class="table-wrapper">
+        <table class="monthly-table" id="monthly-table"></table>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
